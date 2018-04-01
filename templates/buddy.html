@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Smart farmer sale</title>
+</head>
+<body >
+<style type="text/css">
+	body{
+		background-image: url("/static/back.jpg");
+background-repeat: no-repeat;
+background-attachment: fixed;
+	}
+	.first{
+		top:0px;
+		left: 0px;
+		height: 10px;
+		width: 100%;
+		background-color: #b4004e;
+		position: absolute;
+			background-attachment: fixed;
+			position: fixed;
+			z-index: 2;
+	}
+	.second{
+		top:10px;
+		left: 0px;
+		height: 40px;
+		width: 100%;
+		background-color:#ec407a;
+		color: white;
+		font-family: Arial;
+		font-size: 25px;
+		padding: 10px;
+		padding-bottom: 10px;
+		position: absolute;
+			background-attachment: fixed;
+			position: fixed;
+			z-index: 2;
+	}
+	.login_button{
+		right:10px;
+		background-color:  #b4004e;
+		height: 50px;
+		width: 50px;
+		border-radius: 50%;
+		top: 100px;
+		position: absolute;
+		z-index: 2;
+	}
+	.container{
+		
+		background-color: white;
+		height:auto;
+		width: 65%;
+		top:150px;
+border-spacing: 100px;
+		padding: 40px;
+		left:15%;
+		position: absolute;
+		font-family: Arial;
+		border-radius: 20px;
+
+
+	}
+</style>
+<div class="first"></div>
+<div class="second" style="padding-left: 20px;"><font color="#ff77a9"><b style="text-shadow: white 0.5">Smart </b></font> Farmer Sale</div>
+<a href="\logout"><div id="login" class="login_button"></div></a>
+<div align="center" style="padding-top: 10px; position: absolute; position: relative; top: 80px; left: 20%; padding-bottom: 10px; height: 20px; width: 50%;"> 
+	<form method="POST" action="/filter">
+			<input style="width: 80%; height: 15px; color: #b4004e; font-size: 18px;" type="text" placeholder="Filter items" name="filter" required="">
+			<input type="submit" style="width: 10%; border-radius: 10px; background-color: #b4004e; border-color: #b4004e; font-size: 15px; color:white; height: 30px;" value="Filter" />
+</form>
+</div>
+<div class="container">
+	<h4><font color="gray">Hii {{username}} Products available near you</h4></font>
+	<style type="text/css">
+		.inner{
+			padding: 10px;
+			}
+	</style>
+<!--	{% for a in range(0,total)%}
+	<p> {{farmer_id[a]}} </p>
+	
+	{%  endfor %}  -->
+	<div class="inner">
+	<table>
+		{%set cc=0%}
+		{% if control == 1 %}
+		<h3>Filter results for : <font color="#b4004e"> {{filters}} </h3>
+		{% for a in range(0,total)%}
+		
+		<tr>
+			{% if product_name[a].lower()==filters %}
+
+		<td style="padding: 20px;"><img src="/static/package.png" width="150px" height="150px"></td>
+		<td><h2> <font color="#b4004e"><b>{{product_name[a]}}</b> </font></h4>
+		product {{product_id[a]}} is available to the farmer ID: {{farmer_id_p[a]}} 
+		<br>
+		<h3>Available quantity: {{quantity[a]}} g</h3> </td>
+		<td style="padding: 20px;"><h3 style=" border-color: #ec407a; border-style: solid; border-radius: 10px; padding: 5px;"><font color="gray" >Price:</font> Rs. <font color="#003d33"> {{price[a]}} per Kg</font></td></h3>
+		<td style="padding: 20px;">
+			{% if entry_id[a] in purchased %}
+					<img src="/static/index.png"/>
+			{%else%}			
+			<a href="/getaccess/{{farmer_id_p[a]}}/{{product_id[a]}}">
+			<button style="background-color:#ec407a ; border-radius: 10px; padding: 10px; color:white; font-size: 20px; font-style: Arial; 
+			border-color: #e65100;">Buy Now</button>
+			{% endif %}
+		</td>
+			
+			{% endif %}
+		{%else%}
+		<td style="padding: 20px;"><img src="/static/package.png" width="150px" height="150px"></td>
+		<td><h2> <font color="#b4004e"><b>{{product_name[a]}} </b> </font></h4>
+		product {{product_id[a]}} is available to the farmer ID: {{farmer_id_p[a]}} 
+		<br>
+		<h3>Available quantity: {{quantity[a]}} g</h3> </td>
+
+
+
+		{{filters}}++ {{control}}
+		<td style="padding: 20px;"><h3 style=" border-color: #ec407a; border-style: solid; border-radius: 10px; padding: 5px;"><font color="gray" >Price:</font> Rs. <font color="#003d33"> {{price[a]}}</font></td></h3>
+		<td style="padding: 20px;">
+			<a href="/getaccess/{{farmer_id_p[a]}}/{{product_id[a]}}">
+			<button style="background-color:#ec407a ; border-radius: 10px; padding: 10px; color:white; font-size: 20px; font-style: Arial; 
+			border-color: #e65100;">Buy Now</button>
+		</td>
+		
+		</tr>
+		{% endfor%}
+		{% endif %}
+	</table>
+	</div>
+</div>
+</body>
+</html>

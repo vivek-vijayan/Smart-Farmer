@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Smart farmer sale</title>
+</head>
+<body>
+<style type="text/css">
+	body{
+		background-image: url("/static/back.jpg");
+background-repeat: no-repeat;
+background-attachment: fixed;
+	}
+	.first{
+		top:0px;
+		left: 0px;
+		height: 10px;
+		width: 100%;
+		background-color: #b4004e;
+		position: absolute;
+			background-attachment: fixed;
+			position: fixed;
+			z-index: 2;
+	}
+	.second{
+		top:10px;
+		left: 0px;
+		height: 40px;
+		width: 100%;
+		background-color:#ec407a;
+		color: white;
+		font-family: Arial;
+		font-size: 25px;
+		padding: 10px;
+		padding-bottom: 10px;
+		position: absolute;
+			background-attachment: fixed;
+			position: fixed;
+			z-index: 2;
+	}
+	.login_button{
+		right:10px;
+		background-color: #003d33;
+		height: 50px;
+		width: 50px;
+		border-radius: 50%;
+		top: 100px;
+		position: absolute;
+		z-index: 2;
+	}
+	.container{
+		
+		background-color: white;
+		height: auto;
+		width: 70%;
+		top:150px;
+border-spacing: 100px;
+		padding: 40px;
+		left:15%;
+		position: absolute;
+		font-family: Arial;
+	}
+	.buttonx{
+	width: auto; 
+	margin-top: 10px;
+	margin-bottom: 20px; 
+	background: red;
+	padding: 10px;
+	font-size: 13px;
+	color: white;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+	font: cursive;
+}
+</style>
+<div class="first"></div>
+<div class="second" style="padding-left: 20px;"><font color="#439889"><b style="text-shadow: white 0.5">Smart </b></font> farmer sale</div>
+<a href="\login"><div id="login" class="login_button"></div></a>
+<div class="container">
+	<h4><font color="gray">About the Product and Farmer</h4></font>
+	<style type="text/css">
+		.inner{
+			padding: 10px;
+		}
+	</style>
+	<div class="inner">
+		<table><tr><td style="padding:50px; ">
+			<div align="center">
+				<img src="/static/package.png" width="250px" height="250px">
+			</div></td><td>
+			Product details: 
+			<h1>{{pname}}</h1> 
+			<font color="#439889">Available :</font>{{pquan}} g
+
+			<br><h5>
+			</h5>
+		</td>
+		<td style="padding-left: 20px; ">
+			<font color="#003d33"><b>Farmer details</b></font><br><br>
+			<ul>
+			<li>Farmer name : {{fname}} </li>
+			<li>Farmer ID   : {{fid}} </li>
+			<li>Farmer Address : {{faddr}} </li>
+			<li>Farmer Phone : {{fphno}}</li>
+			<li>Farmer PIN   : {{fpin}}</li>
+		</ul>
+		<a href="/"><button>Back to Order</button></a>
+		</td>
+		<td style="padding: 20px;">
+			<button onclick="alert_place()" class="buttonx">Place Order Now</button>
+			<font color="green"><h4 style="padding: 10px;" id="show"> </h4></font>
+			
+			<form method="POST" id="form" >
+				<input type="hidden" name="fid" value="{{fid }}">
+				<input type="hidden" name="fname" value="{{fname }}">
+				<input type="hidden" name="faddr" value="{{faddr }}">
+				<input type="hidden" name="fphno" value="{{fphno }}">
+				<input type="hidden" name="fpin" value="{{fpin }}">
+				<input type="hidden" name="pid" value="{{pid }}">
+				<input type="hidden" name="pname" value="{{pname }}">
+				<input type="hidden" name="pquan" value="{{pquan }}">
+				<input type="hidden" name="pprice" value="{{pprice }}">
+				<input type="hidden" name="uname" value="{{uname }}">
+				<input type="hidden" name="uemail" value="{{uemail }}">
+				<input type="text" name="eid" value="{{eid }}">
+<div style="display:none;">
+				<input type="submit" name="Get Bill Now" >
+</div>
+			</form>
+		</td>
+	</tr>
+
+</table>
+	</div>
+</div>
+<script type="text/javascript">
+	function alert_place() {
+		document.getElementById("form").submit();
+		alert("Your Order is being placed: Bill is sent to your mail shortly");
+		document.getElementById('show').innerHTML="Order placed Successfully.. Sending mail";
+	}
+</script>
+</body>
+</html>

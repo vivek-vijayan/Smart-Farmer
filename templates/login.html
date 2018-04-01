@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+<style type="text/css">
+	body{
+	background-image: url("/static/back.jpg");
+background-repeat: no-repeat;
+background-attachment: fixed;
+	}
+	.first{
+		top:0px;
+		left: 0px;
+		height: 10px;
+		width: 100%;
+		background-color: #b4004e;
+		position: absolute;
+	}
+	.second{
+		top:10px;
+		left: 0px;
+		height: 40px;
+		width: 100%;
+		background-color:#ec407a;
+		color: white;
+		font-family: Arial;
+		font-size: 25px;
+		padding: 10px;
+		padding-bottom: 10px;
+		position: absolute;
+	}
+	
+	
+	.login { 
+	position: absolute;
+	color: #ec407a;
+	top:20%;
+	left: 45%;
+	margin: 0px 0 0 -130px;
+	width:350px;
+	height:350px;
+	 padding:10px;
+	background-color: white;
+	border-radius: 20px;
+	
+}
+input { 
+	width: 70%; 
+	margin-bottom: 10px; 
+	background-color: white;
+	padding: 10px;
+	font-size: 13px;
+	color: #ec407a;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+	
+	}
+.third{
+	width: 70%; 
+	margin-bottom: 10px; 
+	background: #ec407a;
+	padding: 10px;
+	font-size: 13px;
+	color: white;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+
+}
+.fourth{
+	width: 70%; 
+	margin-bottom: 10px; 
+	background: #b4004e;
+	padding: 10px;
+	font-size: 13px;
+	color: white;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+
+}
+.astart {  color:gray; font:Arial, Helvetica, sans-serif; font-size:12px;}
+
+</style>
+</head>				
+<body >					
+	<div class="first"></div>
+	<div class="second" style="padding-left: 20px;"><font color="#ff77a9"><b style="text-shadow: white 0.5">Smart </b></font> Farmer Sale</div>
+	<div>
+                   <div class="login" >
+	<h3 align="center" style="padding-top: 30px;"> Customer Login</h3>
+	<form method="POST" >
+		<center>
+			<input type="text"  required="pls enter" name="u_name"  placeholder="username"/>
+       		<input type="password" required="pls enter" name="u_password"  placeholder="password"/><br><br>
+		<a href="/">	<button class="third" > LOGIN </button>  </a>
+		</center>
+	</form>
+	<h2 class="astart" align="center"> I Dont have a Login . Need a Sign up?</h2>
+<form action="/reg">
+	<center>
+		<button class="fourth"  >SIGN UP</button></a>
+<br>
+		<font color="red"><b>{{error}}</b></font>
+	</center>
+
+</form>
+	</div>
+</body>
+</html>
