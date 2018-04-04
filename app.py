@@ -186,7 +186,7 @@ def login():
 			status=int(c.getcode())
 			data=json.loads(response)
 			total=int(data['channel']['last_entry_id'])
-			
+
 			for x in range(0,total):
 				username.append(str(data['feeds'][x]['field2']))
 				password.append(str(data['feeds'][x]['field6']))
@@ -262,11 +262,12 @@ def getaccess(fid,pid):
 		user_mail=request.form['uemail']
 		eid=request.form['eid']
 
+		total_price=int(product_quantity)*int(product_price)/1000
 #)
 		gmail_user = 'smartfarmersale@gmail.com'
 		gmail_password = 'Smartfarmer157'
 		client = Client("ACb0e39fcd74d7bd6eb7152d3315b93d15", "1634c65896b8671956dc81b67d8a8148")
-		msg_bdy="Order ID: %d , Customer name: %s purchased %sg of %s for Rs:%s"%(order_id,uname,product_quantity,product_name,product_price)
+		msg_bdy="Order ID: %d , Customer name: %s purchased %sg of %s for Rs:%s"%(order_id,uname,product_quantity,product_name,total_price)
 		client.messages.create(to="+"+str(farmer_phno),from_="(256) 401-9985",body=msg_bdy)
 		try:
 		    server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
@@ -287,7 +288,7 @@ Subject: Product Confirmation mail
 			<br>
 			<hr>
 			<table border="1">
-			<tr>	
+			<tr>
 				<th> Product ID</th>
 				<th> Product name </th>
 				<th> Quantity </th>
@@ -320,13 +321,13 @@ Subject: Product Confirmation mail
 			<font color="green" > Please take a print out to purchase the product: </font>
 			<br>
 			<font color="red"> <h3> Bill Validate only for a week from the today. </h3></font>
-			
-			"""%(uname,order_id,product_id,product_name,product_quantity,product_price,farmer_id,farmer_name,farmer_address,farmer_phno)
+
+			"""%(uname,order_id,product_id,product_name,product_quantity,total_price,farmer_id,farmer_name,farmer_address,farmer_phno)
 		    print "mail id :"+uemail
-		    purchased.append(int(eid))			
+		    purchased.append(int(eid))
 		    server.sendmail("vijayanv31@gmail.com",uemail,message)
 			#print "Success"
-			
+
 		except:
 		    print 'Something went wrong...'
 
