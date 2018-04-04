@@ -267,7 +267,7 @@ def getaccess(fid,pid):
 		user_mail=request.form['uemail']
 		eid=request.form['eid']
 
-		total_price=int(product_quantity)*int(product_price)/1000
+		total_price=float(product_quantity)*float(product_price)/1000
 #)
 		gmail_user = 'smartfarmersale@gmail.com'
 		gmail_password = 'Smartfarmer157'
