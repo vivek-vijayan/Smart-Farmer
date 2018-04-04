@@ -12,6 +12,8 @@ Product_name=[]
 Quantity=[]
 Price=[]
 
+total_price_list=[]
+
 # wheat = 31 ----- Rice = 21
 
 entry_id=[]
@@ -138,8 +140,11 @@ def main_filter():
 		Quantity.append(data['feeds'][x]['field4'])
 		Price.append(data['feeds'][x]['field5'])
 		entry_id.append(data['feeds'][x]['entry_id'])
+		total_price_list.append(float(data['feeds'][x]['field4'])*float(data['feeds'][x]['field5'])/1000)
 	print purchased
 	print Product_id
+
+
 	data={
 	'entry_id':entry_id,
 	'purchased':purchased,
@@ -155,7 +160,7 @@ def main_filter():
 	'product_id': Product_id,
 	'product_name': Product_name,
 	'quantity': Quantity,
-	'price': Price,
+	'price': total_price_list,
 	'total': total,
 	'filters':filters,
 	'control':1
