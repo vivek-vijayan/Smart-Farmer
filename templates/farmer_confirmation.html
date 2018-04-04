@@ -48,7 +48,7 @@ background-attachment: fixed;
 		z-index: 2;
 	}
 	.container{
-		
+
 		background-color: white;
 		height: auto;
 		width: 70%;
@@ -60,9 +60,9 @@ border-spacing: 100px;
 		font-family: Arial;
 	}
 	.buttonx{
-	width: auto; 
+	width: auto;
 	margin-top: 10px;
-	margin-bottom: 20px; 
+	margin-bottom: 20px;
 	background: red;
 	padding: 10px;
 	font-size: 13px;
@@ -89,8 +89,8 @@ border-spacing: 100px;
 			<div align="center">
 				<img src="/static/package.png" width="250px" height="250px">
 			</div></td><td>
-			Product details: 
-			<h1>{{pname}}</h1> 
+			Product details:
+			<h1>{{pname}}</h1>
 			<font color="#439889">Available :</font>{{pquan}} g
 
 			<br><h5>
@@ -110,7 +110,7 @@ border-spacing: 100px;
 		<td style="padding: 20px;">
 			<button onclick="alert_place()" class="buttonx">Place Order Now</button>
 			<font color="green"><h4 style="padding: 10px;" id="show"> </h4></font>
-			
+
 			<form method="POST" id="form" >
 				<input type="hidden" name="fid" value="{{fid }}">
 				<input type="hidden" name="fname" value="{{fname }}">
@@ -123,7 +123,7 @@ border-spacing: 100px;
 				<input type="hidden" name="pprice" value="{{pprice }}">
 				<input type="hidden" name="uname" value="{{uname }}">
 				<input type="hidden" name="uemail" value="{{uemail }}">
-				<input type="text" name="eid" value="{{eid }}">
+				<input type="hidden" name="eid" value="{{eid }}">
 <div style="display:none;">
 				<input type="submit" name="Get Bill Now" >
 </div>
